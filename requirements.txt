@@ -4,5 +4,7 @@ fuzzywuzzy
 python-Levenshtein
 distance
 beautifulsoup4
-helper
-pickle
+re
+numpy
+xgboost
+gdown

@@ -1,19 +1,25 @@
 import streamlit as st
-import helper
 import pickle
+import distance
+import re
+from bs4 import BeautifulSoup
+from fuzzywuzzy import fuzz
+import numpy as np
+import helper
 
-model = pickle.load(open('model.pkl','rb'))
+# Setup the Page
+st.set_page_config(page_icon="2️⃣", page_title="Duplicate Question Pair Checker")
+st.title('Duplicate Question Pair Checker')
 
-st.header('Duplicate Question Pairs')
+model = pickle.load(open('xgb_model.pkl', 'rb'))
 
 q1 = st.text_input('Enter question 1')
 q2 = st.text_input('Enter question 2')
 
 if st.button('Find'):
-    query = helper.query_point_creator(q1,q2)
-    result = model.predict(query)[0]
-
+    features = helper.query_point_creator(q1, q2)
+    result = model.predict(features)[0]
     if result:
-        st.header('Duplicate')
+        st.subheader('Duplicate')
     else:
-        st.header('Not Duplicate')
+        st.subheader('Not Duplicate')
