@@ -11,7 +11,7 @@ import helper
 st.set_page_config(page_icon="2️⃣", page_title="Duplicate Question Pair Checker")
 st.title('Duplicate Question Pair Checker')
 
-model = pickle.load(open('xgb_model.pkl', 'rb'))
+model = pickle.load(open('Models/xgb_model.pkl', 'rb'))
 
 q1 = st.text_input('Enter question 1')
 q2 = st.text_input('Enter question 2')
