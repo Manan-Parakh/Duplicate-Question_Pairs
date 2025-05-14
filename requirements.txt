@@ -6,3 +6,5 @@ distance
 beautifulsoup4
 numpy
 xgboost
+gdown
+altair
