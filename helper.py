@@ -6,7 +6,7 @@ from fuzzywuzzy import fuzz
 import numpy as np
 
 # Load vectorizer and classifier
-cv = pickle.load(open('Models/cv.pkl', 'rb'))
+cv = pickle.load(open('./Models/cv.pkl', 'rb'))
 
 def test_common_words(q1, q2):
     w1 = set(map(lambda word: word.lower().strip(), q1.split()))
